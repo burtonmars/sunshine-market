@@ -1,6 +1,15 @@
+import { useRouter } from 'next/router';
+
 import style from '../styles/about.module.scss';
+import styleGlobal from '../styles/globals.module.scss';
 
 function About() {
+  const router = useRouter();
+
+  function navigateTo(route: string) {
+    router.push(route);
+  }
+
   return (
     <div className={style.about__container}>
         <h1>what do we do</h1>
@@ -13,6 +22,10 @@ function About() {
         <p>we deliver to those in a 5km radius from our market by human-powered vehicle for a nominal 
             fee. for those with mobility hindrances or other circumstances that prevent you from visiting in 
             person, the delivery fee will be waived.</p>
+        <div className={style.about__buttonContainer}>
+          <button className={styleGlobal.ctaButton} onClick={() => navigateTo('/shop')}>enter</button>
+          <button className={styleGlobal.ctaButton} onClick={() => navigateTo('/login')}>login</button>
+        </div>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import style from '../styles/home.module.scss';
+import styleGlobal from '../styles/globals.module.scss';
 
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
         <div className={style.home__CTAContainer}>
           <h2>welcome to</h2>
           <h1>sunshine market</h1>
-          <button onClick={() => navigateTo("/about")}>
+          <button className={styleGlobal.ctaButton} onClick={() => navigateTo("/about")}>
             enter
           </button>
         </div>

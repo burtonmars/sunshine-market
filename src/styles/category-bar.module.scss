@@ -1,0 +1,20 @@
+.categoryBar__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: solid 1px #000;
+
+    .categoryBar__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: var(--font-family-header);
+        height: 100%;
+        width: 100%;
+        border: solid 1px #000;
+    }
+}

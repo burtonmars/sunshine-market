@@ -1,0 +1,41 @@
+.shop__container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+    .shop__navbarContainer {
+        flex: 1;
+        margin-top: 1rem;
+    }
+
+    .shop__categorySelectionContainer {
+        margin-top: 1.6rem;
+        height: 6vh;
+    }  
+    
+    .shop__productDisplayContainer {
+        flex: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-top: 3rem;
+
+        .shop__element {
+            height: 35vh;
+
+            h1 {
+                margin-left: 2rem;
+                margin-bottom: 1rem;
+                font-family: var(--font-family-paragraph);
+                font-size: 1.75rem;
+            }
+
+            .shop__productsContainer {
+                display: flex;
+                width: auto;
+                gap: 2rem;
+                height: 80%;
+            }
+        }
+    }
+}

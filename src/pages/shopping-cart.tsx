@@ -1,4 +1,4 @@
-import style from '../styles/shoping-cart.module.scss';
+import style from '../styles/shopping-cart.module.scss';
 
 function ShoppingCart() {
   return (

@@ -24,9 +24,14 @@ const featuredItems = [
         distance: 1000,
         price: 1.99
     }
-]
+];
 
-function Shop() {
+interface ShopProps {
+    backgroundColor: string;
+}
+
+export default function Shop(props: ShopProps) {
+
   return (
     <div className={style.shop__container}>
         <div className={style.shop__navbarContainer}>
@@ -43,7 +48,8 @@ function Shop() {
                         {featuredItems.map((item, index) => (
                             <ProductCard 
                                 key={index}
-                                product={item}/>
+                                product={item}
+                                backgroundColor={props.backgroundColor}/>
                         ))}
                     </div>
                 </div>
@@ -88,4 +94,33 @@ function Shop() {
   )
 }
 
-export default Shop;
+export async function getServerSideProps() {
+    const getRandomColor = () => {
+    const opacity = 0.4;
+    const colors = [
+        `rgb(202, 32, 32, ${opacity})`,
+        `rgb(255, 229, 0, ${opacity})`,
+        `rgb(69, 182, 0, ${opacity})`,
+        `rgb(4, 0, 199, ${opacity})`,
+        ];
+
+        return colors[Math.floor(Math.random() * (colors.length - 1))];
+    }
+
+    const backgroundColor = getRandomColor();
+    // get the current environment
+    let dev = process.env.NODE_ENV !== 'production';
+    let { DEV_URL, PROD_URL } = process.env;
+
+    // request posts from api
+    let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/products`);
+    // extract the data
+    let data = await response.json();
+
+    return {
+        props: {
+            products: data['message'],
+            backgroundColor: backgroundColor
+        },
+    };
+}

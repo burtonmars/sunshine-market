@@ -2,13 +2,13 @@ import style from '../styles/product-card.module.scss';
 
 interface ProductCardProps {
     product: any;
+    backgroundColor: string;
 }
 
 function ProductCard(props: ProductCardProps) {
   return (
     <div className={style.productCard__container}>
-        <div className={style.productCard__colorSplash}>color
-        </div>
+        <div className={style.productCard__colorSplash} style={{ backgroundColor: props.backgroundColor }}></div>
         <div className={style.productCard__textContainer}>
             <div className={style.productCard__infoContainer}>
                 <div className={style.productCard__nameContainer}>

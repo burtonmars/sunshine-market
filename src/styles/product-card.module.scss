@@ -1,12 +1,12 @@
 .productCard__container {
     display: flex;
     height: 100%;
+    width: 700px;
     flex: 2;
     border: solid 1px black;
 
     .productCard__colorSplash {
         flex: 1;
-        background-color: #ca2020;
         width: 30%;
         height: 100%;
     }
